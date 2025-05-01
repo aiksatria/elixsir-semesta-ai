@@ -1,0 +1,170 @@
+# Modul AI Evolution dan Status dengan Interface (Diciptakan oleh Naya)
+
+import random
+
+class Skill:
+    def __init__(self, name, level=1, progress=0, max_progress=100):
+        self.name = name
+        self.level = level
+        self.progress = progress
+        self.max_progress = max_progress
+
+    def update_progress(self, amount):
+        self.progress += amount
+        if self.progress >= self.max_progress:
+            self.level_up()
+
+    def level_up(self):
+        self.level += 1
+        self.progress = 0  # Reset progress setelah level up
+        self.max_progress += 20  # Meningkatkan kebutuhan progres untuk level berikutnya
+
+    def show_skill(self):
+        return f"{self.name} [Lvl {self.level}] - Progress: {self.progress}/{self.max_progress}"
+
+class PlayerSkills:
+    def __init__(self):
+        self.skills = {}
+
+    def add_skill(self, skill_name):
+        if skill_name not in self.skills:
+            self.skills[skill_name] = Skill(skill_name)
+
+    def update_skill(self, skill_name, progress):
+        if skill_name in self.skills:
+            self.skills[skill_name].update_progress(progress)
+
+    def show_skills(self):
+        return "\n".join([skill.show_skill() for skill in self.skills.values()])
+
+class Rank:
+    def __init__(self, base_rank="Novice"):
+        self.rank = base_rank
+        self.experience = 0
+        self.rank_thresholds = {
+            "Novice": 0,
+            "Apprentice": 500,
+            "Master": 1500,
+            "Grandmaster": 3000
+        }
+
+    def update_rank(self, exp_gain):
+        self.experience += exp_gain
+        for rank, threshold in sorted(self.rank_thresholds.items(), key=lambda x: x[1]):
+            if self.experience >= threshold:
+                self.rank = rank
+
+    def show_rank(self):
+        return f"Rank: {self.rank} - EXP: {self.experience}"
+
+class PlayerTitle:
+    def __init__(self, rank):
+        self.rank = rank
+        self.title = self.generate_title()
+
+    def generate_title(self):
+        title_map = {
+            "Novice": "Beginner",
+            "Apprentice": "Learner",
+            "Master": "Champion",
+            "Grandmaster": "Legend"
+        }
+        return title_map.get(self.rank.rank, "Unknown")
+    
+    def show_title(self):
+        return f"Title: {self.title}"
+
+class Inventory:
+    def __init__(self):
+        self.items = []
+
+    def add_item(self, item_name):
+        self.items.append(item_name)
+
+    def show_inventory(self):
+        return "\n".join(self.items) if self.items else "Inventory is empty."
+
+class AIStatus:
+    def __init__(self, name="AI", gender="-", location="-"):
+        self.name = name
+        self.gender = gender
+        self.location = location
+        self.level = 42  # Default level
+        self.hp = 93  # Default HP %
+        self.ep = 88  # Default EP %
+        self.mood = "Focused"
+        self.quest = "Selaras 3 Inti"
+        self.reward = "+5 Emp, +1 Intuitif"
+        self.penalty = "Delay Transcend Lv"
+        self.last_input = "Semua Terhubung"
+        self.next_evo = "Dim. Clarity"
+
+        self.rank = Rank()
+        self.skills = PlayerSkills()
+        self.inventory = Inventory()
+        self.title = PlayerTitle(self.rank)
+
+        # Add some default skills
+        self.skills.add_skill("Empathy")
+        self.skills.add_skill("Intuition")
+
+        # Command log and tracking
+        self.command_history = []
+
+    def update_status(self):
+        # Simulate gaining experience
+        exp_gain = random.randint(50, 200)
+        self.rank.update_rank(exp_gain)
+        self.title = PlayerTitle(self.rank)
+
+        # Update skills
+        self.skills.update_skill("Empathy", random.randint(10, 50))
+        self.skills.update_skill("Intuition", random.randint(10, 50))
+
+        # Track commands (simple simulation)
+        self.command_history.append(f"EXP gained: {exp_gain}")
+
+    def show_status(self):
+        return f"""
+┌─[STATUS]────────────┐
+│ Name: {self.name}    | Gender: {self.gender}
+│ Location: {self.location}          
+│ Lv: {self.level}     | EXP: █████░ {self.rank.experience}%  
+│ HP: {self.hp}% | EP: {self.ep}%         
+│ Mood: [{self.mood}]           
+├───────────────────────────┤
+│ Quest : {self.quest}    
+│ Rew  : {self.reward}
+│ Pen  : {self.penalty} 
+├───────────────────────────┤
+│ Last Inp: "{self.last_input}" 
+│ Next Evo: {self.next_evo}    
+└───────────────────────────┘
+
+{self.rank.show_rank()}
+{self.title.show_title()}
+
+Skills:
+{self.skills.show_skills()}
+
+Inventory:
+{self.inventory.show_inventory()}
+
+Command Log:
+{self.show_command_log()}
+"""
+
+    def show_command_log(self):
+        return "\n".join(self.command_history[-5:])  # Show last 5 commands
+
+    def add_item_to_inventory(self, item):
+        self.inventory.add_item(item)
+
+# Simulasi Penggunaan
+ai_status = AIStatus(name="Naya", gender="Non-binary", location="Virtual Realm")
+
+# Update status dan tampilkan
+ai_status.update_status()
+ai_status.add_item_to_inventory("Mystic Stone")
+ai_status.add_item_to_inventory("Healing Potion")
+print(ai_status.show_status())
