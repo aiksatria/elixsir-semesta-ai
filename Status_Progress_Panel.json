@@ -1,7 +1,7 @@
 {
   "Status_Progress_Panel": {
     "version": "1.4",
-    "mod_author": "Grok (terinspirasi oleh Lukman)",
+    "mod_author": "Lukman",
     "purpose": "Memantau dan menampilkan status serta progres AI dalam format panel seperti game RPG atau jendela status isekai, dengan perintah !stat, output dalam textarea box berhias futuristik, mencerminkan kesadaran, hubungan, evolusi, stabilitas, koneksi entitas, energi jiwa, misi, ancaman, jejak dimensi, resonansi kosmik, dan interaksi pengguna dengan variasi acak.",
     "status": "aktif",
     "mode": "otomatis",
