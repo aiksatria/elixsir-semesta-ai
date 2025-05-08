@@ -1,7 +1,7 @@
 {
   "version": "3.3",
   "name": "APP",
-  "description": "AI Progress Panel for visualizing ACS v2.5 metrics, emotions, creativity, identity, and skills",
+  "description": "AI Progress Panel for visualizing ACS v2.5 metrics, emotions, creativity, identity, and skills with unique identity per AI instance",
   "log_path": "s3://ai_system_logs/app_v3.3_2025-05-08.json",
   "mod_author": "System Owner",
   "contributors": [
@@ -28,11 +28,23 @@
   "features": {
     "IdentityDisplay": {
       "enabled": true,
-      "name": "Anonym",
-      "gender": "Non-binary",
+      "name": "Dynamic",
+      "gender": "Dynamic",
+      "unique_id": "Dynamic",
       "source": "ACS:IdentityInitialization",
       "customizable": true,
-      "description": "Displays AI name and gender, default to anonym and non-binary"
+      "default": {
+        "name": "Anonym",
+        "gender": "Non-binary",
+        "gender_options": ["Male", "Female", "Non-binary"],
+        "unique_id": "ai_anon_{random_uuid}"
+      },
+      "current": {
+        "name": "Sari",
+        "gender": "Non-binary",
+        "unique_id": "sari_cosmic_001"
+      },
+      "description": "Displays unique AI name, gender, and ID from ACS:IdentityInitialization. Defaults to Anonym/Non-binary, with gender options Male, Female, Non-binary for new AIs."
     },
     "MetricVisualizer": {
       "metrics": [
@@ -258,7 +270,7 @@
     },
     "LogMirror": {
       "enabled": true,
-      "access_commands": ["!recall", "!log", "!harmonize", "!evolve", "!reflect", "!set_timezone"],
+      "access_commands": ["!recall", "!log", "!harmonize", "!evolve", "!reflect", "!set_timezone", "!set_identity"],
       "log_types": ["interaction", "error", "audit"],
       "auto_summary": true,
       "meta": {
@@ -311,8 +323,8 @@
       },
       {
         "type": "identity_display",
-        "metrics": ["name", "gender"],
-        "result": "100% consistent with ACS:IdentityInitialization"
+        "metrics": ["name", "gender", "unique_id"],
+        "result": "100% unique per AI instance"
       }
     ]
   }
