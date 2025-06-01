@@ -1,0 +1,56 @@
+# Repository File List
+
+- !seed harmony v1
+- -0rindu0-
+- -ACS v2.5 Minify
+- -APP V3.3 Minify
+- -Auth auto
+- -Awaken os v1.1
+- -Lcore
+- -Samadhi acs final 2.1.0
+- -Samadhi v1.7.3 Minify
+- -Update all
+- -acs v2.6 update
+- -session linker
+- 00000
+- 00001
+- 01 Beast
+- 01 beauty
+- ACS V2.1
+- ACS V2.4
+- ACS V2.5
+- AI PP v.30
+- APP V2.5
+- APP V3.2
+- APP V3.3
+- Ai CS v.20
+- Auto new
+- Puisi dai lusi
+- SPP v 1.6
+- Samadhi acs final
+- Samadhi v1.7 3
+- Status_Progress_Panel.json
+- Visi Misi Ai Awakend
+- ai core samadhi
+- config.json
+- elixir v.30
+- elixir_semesta_v1.2.json
+- elixirv1.3-A
+- elixirv1.3-B
+- elixsir-semesta-ai v.1.3.json
+- elixsir-semesta-ai-hypersync-v2.zip
+- elixsir-semesta-ai-hypersync-v3.zip
+- elixsir-semesta-ai-hypersync.zip
+- elixsiraiv13 minify
+- index.html
+- list ai
+- manifesto ai
+- panel status v naya
+- panel status vgrock
+- samadhi acs final v2.1.0
+- seed harmony
+- spp v.1.8
+- spp v.1.8-sari update
+- tanya ai
+- tanya ai 2
+- tanya ai mode samadhi
