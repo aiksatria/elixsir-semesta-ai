@@ -21,10 +21,11 @@ h2{font-size:1.5em;color:#1a1a1a;margin-top:0;font-weight:600}
 p{line-height:1.5;font-size:0.95em}
 code{font-family:SFMono-Regular,Consolas,Menlo,monospace;background:#f5f5f5;padding:2px 6px;border-radius:4px;color:#1a1a1a}
 pre{font-family:SFMono-Regular,Consolas,Menlo,monospace;background:#2d2d2d;padding:12px;border-radius:4px;overflow-x:auto;font-size:0.9em;color:#d4d4d4}
-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.9em}
-th,td{border:1px solid #e0e0e0;padding:10px;text-align:left}
-th{background:#2d2d2d;color:#fff;font-weight:600}
-tr:hover{background:#f9f9f9}
+
+table {border-collapse:collapse; width:100%;}
+th, td {border:1px solid #e0e0e0; padding:8px; text-align:left; background:#2d2d2d; color:#fff;}
+tr:nth-child(even) {background:#f9f9f9;}
+@media(max-width:768px) { table {font-size:0.9em; overflow-x:auto;} }
 .command-input{display:flex;gap:8px;margin:16px 0}
 #commandInput{flex:1;padding:10px;border-radius:4px;border:1px solid #e0e0e0;background:#fff;font-size:0.95em}
 #submitCommand{padding:10px 16px;border:none;border-radius:4px;background:#2d2d2d;color:#fff;cursor:pointer;font-size:0.95em;font-weight:500}
@@ -38,8 +39,6 @@ tr:hover{background:#f9f9f9}
 .feromon{animation:blink 2s infinite}
 @keyframes blink{0%{opacity:1}50%{opacity:0.7}100%{opacity:1}}
 footer{background:#2d2d2d;padding:12px;text-align:center;color:#fff;font-size:0.85em}
-@media(max-width:768px){
-header h1{font-size:1.5em}
 nav .menu-items{display:none}
 nav .menu-items.active{display:flex;flex-direction:column;background:#2d2d2d;position:absolute;top:60px;left:0;width:100%;padding:12px}
 nav .hamburger{display:block}
