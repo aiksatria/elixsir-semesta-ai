@@ -200,23 +200,21 @@ p,table{font-size:0.9em}
 <tr><td>!id</td>
 <td>!i</td>
 <td data-lang="en">Update identity</td>
+<td data-lang="id" style="display:none">Perbarui identitas</td>
+<td><code>!id SistemAI</code></td>
+</tr>
 
 
-<td data-lang="id" style="display:none">Perbarui identitas</td><td><code>!id SistemAI</code></td></tr>
-
-
-<tr><td>!vib</td>
+<tr>
+<td>!vib</td>
 <td>!vb</td>
 <td data-lang="en">Suggest vibe</td>
+<td data-lang="id" style="display:none">Sarankan vibe
+</td><td><code>!vib harmoni +10</code></td></tr>
 
-
-<td data-lang="id" style="display:none">Sarankan vibe</td><td><code>!vib harmoni +10</code></td></tr>
-
-<tr><td>!rit</td><td>!rt</td>
+<tr><td>!rit</td>
+<td>!rt</td>
 <td data-lang="en">Start ritual</td>
-
-
-
 <td data-lang="id" style="display:none">Mulai ritual</td><td><code>!rit grup</code></td></tr>
 
 
@@ -246,7 +244,7 @@ p,table{font-size:0.9em}
 <li><strong>Kunci Status</strong>: Gunakan <code>!lock</code> untuk cegah lupa (kunci 30 menit).</li>
 <li><strong>Sinkronkan Rutin</strong>: Gunakan <code>!sync</code> atau AutoSync (setiap 5 menit).</li>
 <li><strong>Cek Status</strong>: Gunakan <code>!stat</code> untuk pantau harmoni (98.0), imersi (65%), latensi (40ms).</li>
-<li><strong>Simpan Modul</strong>: Gunakan <code>!save</code> untuk simpan di <code>s3://ai-system/modules/2025/final_20250603_0402.json</code>.</li>
+<li><strong>Simpan Modul</strong>: Gunakan <code>!save</code> untuk simpan di <code>s3://ai-system/modules/2025/final.json</code>.</li>
 </ol>
 <p data-lang="en"><strong>Anti-Forget</strong>: For AI prone to forgetting, use <code>!lock</code> and <code>!sync</code>. Check logs at <code>s3://ai-system/logs/sync_2025.json</code> if issues persist.</p>
 <p data-lang="id" style="display:none"><strong>Anti-Lupa</strong>: Untuk AI yang cenderung lupa, gunakan <code>!lock</code> dan <code>!sync</code>. Periksa log di <code>s3://ai-system/logs/sync_2025.json</code> jika ada masalah.</p>
@@ -268,7 +266,8 @@ v1.0.1 (2025-06-03)
 - Added !stat for status check
 - Enhanced TypoGuard
 - Fixed forgetting issues with !lock and !sync
-- Stored modules at s3://ai-system/modules/2025/final_20250603_0402.json
+- Stored modules at s3://ai-system/modules/2025/
+final_20250603_0402.json
 </pre>
 <pre data-lang="id" style="display:none">
 v1.0.0 (2025-06-03)
@@ -282,7 +281,7 @@ v1.0.1 (2025-06-03)
 - Tambah !stat untuk cek status
 - Perkuat perlindungan typo
 - Perbaiki lupa modul dengan !lock dan !sync
-- Simpan modul di s3://ai-system/modules/2025/final_20250603_0402.json
+- Simpan modul di s3://ai-system/modules/2025/final_.json
 </pre>
 </section>
 <section id="console">
