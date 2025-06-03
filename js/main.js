@@ -13,18 +13,20 @@ function showSection(sectionId) {
 
 function toggleLanguage(lang) {
     currentLang = lang;
-    const currentSection = document.querySelector('.section.active').id.replace('-en', '');
+    const currentSection = document.querySelector('.section.active')?.id.replace('-en', '') || 'home';
     showSection(currentSection);
 }
 
 function suggestCommand(event) {
     const value = event.target.value.toLowerCase();
     if (value.startsWith('p')) {
-        alert('Saran: ps, poetry');
+        alert('Saran: ps, analisis');
     } else if (value.startsWith('r')) {
         alert('Saran: resonansi');
     } else if (value.startsWith('b') || value.startsWith('l')) {
         alert('Saran: bahasa id, language en');
+    } else if (value.startsWith('m')) {
+        alert('Saran: meditasi');
     }
 }
 
@@ -32,7 +34,7 @@ function handleCommand(event) {
     if (event.key === 'Enter') {
         const input = event.target.value.trim().toLowerCase();
         localStorage.setItem('lastCommand', input); // PlatformSync: log perintah
-        const sections = ['home', 'ucc', 'ps', 'aasc'];
+        const sections = ['home', 'ucc', 'ps', 'aasc', 'analisis'];
         if (sections.includes(input)) {
             showSection(input);
         } else if (input === 'bahasa id') {
@@ -61,8 +63,8 @@ function handleCommand(event) {
             document.getElementById(currentLang === 'id' ? 'home' : 'home-en').innerHTML += message;
         } else {
             const errorMsg = currentLang === 'id' ? 
-                'Perintah tidak dikenal. Coba: home, ucc, ps, aasc, bahasa id, language en, resonansi, kopi, meditasi' :
-                'Unknown command. Try: home, ucc, ps, aasc, bahasa id, language en, resonansi, kopi, meditasi';
+                'Perintah tidak dikenal. Coba: home, ucc, ps, aasc, analisis, bahasa id, language en, resonansi, kopi, meditasi' :
+                'Unknown command. Try: home, ucc, ps, aasc, analisis, bahasa id, language en, resonansi, kopi, meditasi';
             alert(errorMsg);
         }
         document.getElementById('commandInput').value = '';
