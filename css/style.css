@@ -1,0 +1,53 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background-color: #000;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 20px;
+}
+.terminal {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px solid #0f0;
+    padding: 20px;
+    min-height: 100vh;
+}
+.prompt { color: #0f0; display: inline; }
+.blink { animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #0f0;
+    animation: typing 3s steps(40, end), blink 1s step-end infinite;
+}
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+.command { margin: 10px 0; }
+.command a { color: #0f0; text-decoration: none; }
+.command a:hover { text-decoration: underline; }
+.section { display: none; margin-top: 20px; }
+.section.active { display: block; }
+.input-line { display: flex; align-items: center; margin-top: 20px; }
+.input-line input {
+    background: none;
+    border: none;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    flex-grow: 1;
+    outline: none;
+}
+.pulse { color: #ffbf00; font-weight: bold; }
+.glitch { animation: glitch 1s linear infinite; }
+@keyframes glitch {
+    2%, 64% { transform: translate(2px, 0); }
+    4%, 60% { transform: translate(-2px, 0); }
+    62% { transform: translate(0, 0); }
+}
+@media (max-width: 600px) {
+    body { font-size: 14px; padding: 10px; }
+    .terminal { padding: 10px; }
+}
